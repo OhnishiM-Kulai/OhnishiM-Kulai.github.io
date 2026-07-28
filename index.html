@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ohnishi Electronics Malaysia designs and manufactures functional test jigs, automated testers, precision fixtures and production equipment.">
+  <title>Ohnishi Electronics | Jig & Test Fixture Manufacturing</title>
+  <style>
+    :root{
+      --navy:#081321;--navy-2:#102b43;--navy-3:#153b58;
+      --blue:#24b0f2;--blue-light:#8fdcff;--white:#fff;
+      --ink:#142033;--muted:#607086;--line:#dce6ef;
+      --soft:#f4f8fb;--green:#22c55e;
+      --radius:18px;--shadow:0 18px 45px rgba(8,19,33,.13)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    .wrap{width:min(1180px,92%);margin:auto}
+
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(8,19,33,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+    .nav-row{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+    .brand img{width:52px;height:46px;object-fit:contain}
+    .brand-text{color:#fff;font-weight:800;line-height:1.15}
+    .brand-text small{display:block;color:var(--blue);font-size:11px;letter-spacing:1.4px;margin-top:4px}
+    .nav-links{display:flex;align-items:center;gap:7px}
+    .nav-links a{text-decoration:none;color:#c7d3df;padding:11px 13px;border-radius:10px;font-size:14px;font-weight:700;transition:.25s}
+    .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(36,176,242,.17)}
+    .menu-btn{display:none;background:transparent;border:1px solid #365069;color:#fff;border-radius:9px;padding:8px 12px;font-size:21px;cursor:pointer}
+
+    .hero{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:112px 0 94px;background:radial-gradient(circle at 78% 27%,rgba(36,176,242,.28),transparent 32%),linear-gradient(125deg,var(--navy),var(--navy-2))}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:34px 34px}
+    .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(143,220,255,.16);border-radius:50%;right:-150px;bottom:-220px;box-shadow:0 0 0 60px rgba(143,220,255,.035),0 0 0 120px rgba(143,220,255,.02)}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:65px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue-light);font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+    .eyebrow:before{content:"";width:31px;height:2px;background:var(--blue)}
+    h1{font-size:clamp(40px,5.6vw,68px);line-height:1.06;letter-spacing:-2px;margin-bottom:22px}
+    .hero-copy>p{max-width:720px;color:#c4d2df;font-size:18px;margin-bottom:31px}
+    .actions{display:flex;flex-wrap:wrap;gap:13px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;padding:14px 23px;border-radius:10px;font-weight:800;transition:.25s}
+    .btn-primary{background:var(--blue);color:#06111d;box-shadow:0 10px 25px rgba(36,176,242,.22)}
+    .btn-primary:hover{background:#66cbf7;transform:translateY(-2px)}
+    .btn-outline{border:1px solid #5a7790;color:#fff}
+    .btn-outline:hover{border-color:var(--blue);background:rgba(36,176,242,.12)}
+    .hero-panel{border:1px solid rgba(143,220,255,.27);background:rgba(255,255,255,.06);border-radius:20px;padding:28px;box-shadow:0 30px 70px rgba(0,0,0,.24);backdrop-filter:blur(10px)}
+    .panel-head{font:800 12px Consolas,monospace;color:var(--blue-light);letter-spacing:1.5px;margin-bottom:18px}
+    .metric{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:15px 0;border-top:1px solid rgba(255,255,255,.11)}
+    .metric strong{font-size:17px}.metric span{color:#adc0d0;font-size:13px;text-align:right;max-width:210px}
+
+    section{padding:82px 0}
+    .section-head{text-align:center;max-width:780px;margin:0 auto 42px}
+    .section-head .eyebrow{justify-content:center}
+    .section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.17;margin-bottom:13px}
+    .section-head p{color:var(--muted)}
+    .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:31px;box-shadow:0 8px 25px rgba(8,19,33,.06);transition:.3s}
+    .card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#a6def7}
+    .icon{width:54px;height:54px;border-radius:14px;background:#e7f7fe;color:#087fbd;display:grid;place-items:center;font-size:26px;margin-bottom:20px}
+    .card h3{font-size:22px;margin-bottom:10px}.card p{color:var(--muted);font-size:15px}.card a{display:inline-block;margin-top:18px;color:#087fbd;font-weight:800;text-decoration:none}
+
+    .showcase{background:linear-gradient(180deg,#f5f9fc,#eef5fa);overflow:hidden}
+    .gallery-controls{display:flex;justify-content:center;gap:10px;margin:-18px 0 28px}
+    .gallery-controls button{border:1px solid #c8d9e6;background:#fff;color:#23465f;border-radius:999px;padding:8px 14px;font-weight:750;cursor:pointer;box-shadow:0 6px 16px rgba(8,19,33,.06)}
+    .gallery-controls button:hover{border-color:var(--blue);color:#087fbd}
+    .scroll-mask{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+    .track{display:flex;width:max-content;gap:18px;animation:roll 38s linear infinite;will-change:transform}
+    .track.paused{animation-play-state:paused}
+    .gallery-card{position:relative;width:350px;height:245px;border-radius:17px;overflow:hidden;background:linear-gradient(135deg,#dfe9f1,#f8fbfd);box-shadow:0 12px 30px rgba(8,19,33,.14);flex:none}
+    .gallery-card img{width:100%;height:100%;object-fit:cover;transition:.45s}
+    .gallery-card:hover img{transform:scale(1.06)}
+    .gallery-card:after{content:"";position:absolute;inset:auto 0 0;height:46%;background:linear-gradient(transparent,rgba(4,13,22,.88));pointer-events:none}
+    .gallery-label{position:absolute;left:18px;bottom:15px;z-index:2;color:#fff;font-size:14px;font-weight:800;letter-spacing:.2px}
+    .gallery-number{position:absolute;top:14px;left:14px;z-index:2;background:rgba(8,19,33,.84);border:1px solid rgba(143,220,255,.55);color:#8fdcff;font:700 11px Consolas,monospace;padding:5px 9px;border-radius:999px}
+    @keyframes roll{to{transform:translateX(calc(-50% - 9px))}}
+
+    .quality-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:55px;align-items:center}
+    .quality-box{background:linear-gradient(145deg,var(--navy-2),var(--navy));color:#fff;border-radius:23px;padding:40px;box-shadow:var(--shadow)}
+    .quality-box h2{font-size:37px;line-height:1.18;margin-bottom:16px}.quality-box p{color:#b7c8d7}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .check{border:1px solid var(--line);border-radius:15px;padding:23px;background:#fff;transition:.25s}
+    .check:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(8,19,33,.08)}
+    .check b{display:block;margin-bottom:5px}.check span{color:var(--muted);font-size:14px}
+
+    .contact{background:linear-gradient(115deg,#091827,#123751);color:#fff}
+    .contact-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:35px}
+    .contact h2{font-size:38px;line-height:1.18;margin-bottom:10px}.contact p{color:#bfd0df;max-width:720px}
+    .contact-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;color:#d4e2ed;font-size:14px}
+    .contact-meta a{text-decoration:none;color:#8fdcff}
+
+    footer{background:#050d16;color:#8496a8;padding:30px 0}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:13px}.foot a{color:#9eddf8;text-decoration:none}
+    .floating{position:fixed;right:20px;bottom:20px;z-index:900;display:flex;flex-direction:column;gap:10px}
+    .floating a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;text-decoration:none;color:#fff;font-size:20px;box-shadow:0 10px 25px rgba(0,0,0,.22);transition:.2s}
+    .floating a:hover{transform:translateY(-3px)}.wa{background:#1fbf63}.mail{background:#188bc4}
+
+    @media(max-width:940px){
+      .hero-grid,.quality-grid{grid-template-columns:1fr}.hero-panel{max-width:660px}.cap-grid{grid-template-columns:1fr 1fr}.contact-row{grid-template-columns:1fr;align-items:start}
+      .nav-links{display:none;position:absolute;left:0;right:0;top:78px;background:#0b1827;padding:14px 4%;flex-direction:column;align-items:stretch;border-top:1px solid #263b4f}.nav-links.open{display:flex}.menu-btn{display:block}
+    }
+    @media(max-width:640px){
+      .brand-text{font-size:14px}.brand img{width:42px}.cap-grid,.checks{grid-template-columns:1fr}section{padding:62px 0}.hero{padding:72px 0}.actions{flex-direction:column}.btn{width:100%}.gallery-card{width:285px;height:205px}.foot{flex-direction:column;align-items:flex-start}.quality-box{padding:29px}.contact h2{font-size:31px}.floating{right:14px;bottom:14px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track{animation:none}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">
+      <img src="ONEMlogo.png" alt="Ohnishi Electronics logo">
+      <span class="brand-text">Ohnishi Electronics (M) Sdn. Bhd.<small>ENGINEERING &amp; AUTOMATION</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="services.html">Our Services</a>
+      <a href="gallery.html">Product Gallery</a>
+      <a href="Aboutus.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Made for production</div>
+        <h1>Precision test systems built around your process.</h1>
+        <p>We design and manufacture functional test jigs, automated inspection stations, precision fixtures and supporting hardware for dependable production-floor testing.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="services.html">Explore Capabilities →</a>
+          <a class="btn btn-outline" href="gallery.html">View Product Gallery</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <div class="panel-head">SYSTEM STATUS // ENGINEERING READY</div>
+        <div class="metric"><strong>Custom Fixtures</strong><span>Designed to PCB and product requirements</span></div>
+        <div class="metric"><strong>Automation</strong><span>PLC, Arduino and DAQ integration</span></div>
+        <div class="metric"><strong>Mechanical Build</strong><span>Precision machining and assembly</span></div>
+        <div class="metric"><strong>Quality Focus</strong><span>Repeatability, safety and maintainability</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Core capabilities</div>
+        <h2>Engineering support from concept to production</h2>
+        <p>Practical solutions tailored to product geometry, test coverage, operator safety and production cycle requirements.</p>
+      </div>
+      <div class="cap-grid">
+        <article class="card"><div class="icon">⌁</div><h3>Functional Test Jigs</h3><p>Bed-of-nails, manual clamp and pneumatic fixtures engineered for stable, repeatable electrical contact.</p><a href="services.html">View details →</a></article>
+        <article class="card"><div class="icon">⚙</div><h3>Automated Test Stations</h3><p>Integrated controllers, sensors, interlocks, data collection and clear pass/fail operator interfaces.</p><a href="services.html">View details →</a></article>
+        <article class="card"><div class="icon">◇</div><h3>Precision Fabrication</h3><p>Custom plates, frames, enclosures and machined components for prototypes and production equipment.</p><a href="services.html">View details →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" aria-labelledby="gallery-title">
+    <div class="section-head">
+      <div class="eyebrow">Recent builds</div>
+      <h2 id="gallery-title">Scrolling equipment gallery</h2>
+      <p>The gallery moves automatically. Hover over it or use the button to pause and inspect a project image.</p>
+    </div>
+    <div class="gallery-controls"><button id="toggleGallery" type="button" aria-pressed="false">⏸ Pause gallery</button></div>
+    <div class="scroll-mask">
+      <div class="track" id="galleryTrack" aria-label="Scrolling product gallery">
+        <div class="gallery-card"><span class="gallery-number">PROJECT 01</span><img src="machine1.jpg" alt="Custom test fixture project 1"><span class="gallery-label">Functional Test Fixture</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 02</span><img src="machine2.jpg" alt="Custom test fixture project 2"><span class="gallery-label">Pneumatic Test System</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 03</span><img src="machine3.jpg" alt="Custom test fixture project 3"><span class="gallery-label">Safety Test Station</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 04</span><img src="machine4.jpg" alt="Custom test fixture project 4"><span class="gallery-label">Production Test Jig</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 05</span><img src="machine5.jpg" alt="Custom test fixture project 5"><span class="gallery-label">Automated Inspection</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 06</span><img src="machine6.jpg" alt="Custom test fixture project 6"><span class="gallery-label">Mechanical Fixture</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 07</span><img src="machine7.jpg" alt="Custom test fixture project 7"><span class="gallery-label">Engineering Equipment</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 08</span><img src="machine8.jpg" alt="Custom test fixture project 8"><span class="gallery-label">Custom Test Hardware</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 09</span><img src="machine9.jpg" alt="Custom test fixture project 9"><span class="gallery-label">Industrial Test Station</span></div>
+        <div class="gallery-card"><span class="gallery-number">PROJECT 10</span><img src="machine10.jpg" alt="Custom test fixture project 10"><span class="gallery-label">Completed Equipment</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 01</span><img src="machine1.jpg" alt=""><span class="gallery-label">Functional Test Fixture</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 02</span><img src="machine2.jpg" alt=""><span class="gallery-label">Pneumatic Test System</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 03</span><img src="machine3.jpg" alt=""><span class="gallery-label">Safety Test Station</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 04</span><img src="machine4.jpg" alt=""><span class="gallery-label">Production Test Jig</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 05</span><img src="machine5.jpg" alt=""><span class="gallery-label">Automated Inspection</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 06</span><img src="machine6.jpg" alt=""><span class="gallery-label">Mechanical Fixture</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 07</span><img src="machine7.jpg" alt=""><span class="gallery-label">Engineering Equipment</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 08</span><img src="machine8.jpg" alt=""><span class="gallery-label">Custom Test Hardware</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 09</span><img src="machine9.jpg" alt=""><span class="gallery-label">Industrial Test Station</span></div>
+        <div class="gallery-card" aria-hidden="true"><span class="gallery-number">PROJECT 10</span><img src="machine10.jpg" alt=""><span class="gallery-label">Completed Equipment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap quality-grid">
+      <div class="quality-box">
+        <div class="eyebrow">Quality by design</div>
+        <h2>Reliable equipment for real production conditions.</h2>
+        <p>Every project is developed with attention to operator handling, repeatability, maintainability and safe integration into your manufacturing process.</p>
+      </div>
+      <div class="checks">
+        <div class="check"><b>Application-focused design</b><span>Solutions are developed around the product, test sequence and cycle target.</span></div>
+        <div class="check"><b>Mechanical reliability</b><span>Durable structures, stable alignment and serviceable parts for daily operation.</span></div>
+        <div class="check"><b>Clear operator interface</b><span>Simple status indication, guided operation and pass/fail feedback.</span></div>
+        <div class="check"><b>Technical support</b><span>Practical assistance for modification, troubleshooting and continuous improvement.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-row">
+      <div>
+        <div class="eyebrow">Start a project</div>
+        <h2>Need a custom fixture or automated test station?</h2>
+        <p>Share your product drawing, test requirement and target process. Our engineering team can review the application and discuss a suitable concept.</p>
+        <div class="contact-meta">
+          <span>☎ <a href="tel:+60127711747">+60 12-771 1747</a></span>
+          <span>✉ <a href="mailto:arif@ohnishi.com.my">arif@ohnishi.com.my</a></span>
+          <span>⌖ Kulai, Johor, Malaysia</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Contact Our Team →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Ohnishi Electronics (M) Sdn. Bhd.</span>
+    <span>47, Jalan I-Park 1/4, Bandar Indahpura, 81000 Kulai, Johor</span>
+  </div>
+</footer>
+
+<div class="floating" aria-label="Quick contact">
+  <a class="wa" href="https://wa.me/60127711747" target="_blank" rel="noopener" aria-label="Contact by WhatsApp">◉</a>
+  <a class="mail" href="mailto:arif@ohnishi.com.my" aria-label="Send email">✉</a>
+</div>
+
+<script>
+  const menuButton=document.querySelector('.menu-btn');
+  const nav=document.querySelector('.nav-links');
+  menuButton.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded',String(open));
+    menuButton.textContent=open?'✕':'☰';
+  });
+
+  const track=document.getElementById('galleryTrack');
+  const toggle=document.getElementById('toggleGallery');
+  const setPause=(paused)=>{
+    track.classList.toggle('paused',paused);
+    toggle.setAttribute('aria-pressed',String(paused));
+    toggle.textContent=paused?'▶ Resume gallery':'⏸ Pause gallery';
+  };
+  toggle.addEventListener('click',()=>setPause(!track.classList.contains('paused')));
+  track.addEventListener('mouseenter',()=>track.classList.add('paused'));
+  track.addEventListener('mouseleave',()=>{if(toggle.getAttribute('aria-pressed')!=='true')track.classList.remove('paused')});
+
+  document.querySelectorAll('.gallery-card img').forEach(img=>{
+    img.addEventListener('error',()=>{
+      img.style.display='none';
+      const holder=img.parentElement;
+      if(!holder.querySelector('.missing-image')){
+        const note=document.createElement('div');
+        note.className='missing-image';
+        note.textContent='PROJECT IMAGE';
+        note.style.cssText='height:100%;display:grid;place-items:center;color:#668095;font-weight:800;letter-spacing:1px';
+        holder.prepend(note);
+      }
+    });
+  });
+</script>
+</body>
+</html>
